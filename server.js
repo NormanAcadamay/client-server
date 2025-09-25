@@ -1,22 +1,19 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const campingRoute = require("./routes/camping");
 
 // middlewere
 app.use(cors());
+app.use(express.json()); // req.body
 
 // Method GET,POST, PUT,PATCH, DELETE
 
-app.length("/", (req, res) => {
-  console.log("Hello Easy Backend");
-  //res.send('Hello Easy Backend')
-  const roitai = "easy backend";
-  res.json({ roitai });
-});
 
-app.get("/camping", (req, res) => {
-  res.send("Hello camping");
-});
+app.use("/api", campingRoute);
+// app.get('/',(req,res)=>{
+//   res.json({message:"Hello,"})
+// })
 
-const PORT = 5000;
+const PORT = 5001;
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
