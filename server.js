@@ -2,10 +2,12 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const campingRoute = require("./routes/camping");
+const morgan = require("morgan");
 
 // middlewere
 app.use(cors());
 app.use(express.json()); // req.body
+app.use(morgan('dev'))
 
 // Method GET,POST, PUT,PATCH, DELETE
 

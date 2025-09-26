@@ -4,10 +4,12 @@ const router = express.Router();
 // Controllers
 const { listCamping, readCamping , createCamping , updateCamping ,deleteCamping} = require("../controllers/camping");
 
+const { authCheck } = require("../middlewares/auth");
+
 // ENDPOINT http://localhost:5001/api/camping
 // @Method GET [List CAMPING]
 // @ACCESS PUBLIC
-router.get("/camping", listCamping);
+router.get("/camping",authCheck, listCamping);
 
 // ENDPOINT http://localhost:5001/api/camping/5
 // @Method GET [Read CAMPING]
@@ -28,6 +30,8 @@ router.put("/camping/:id", updateCamping);
 // @Method DELETE [delete camping]
 // @ACCESS PRIVATE
 router.delete("/camping/:id", deleteCamping);
+
+
 
 //  export router ออกไป
 module.exports = router;

@@ -2,7 +2,7 @@ exports.listCamping = (req, res) => {
   try {
     // code body
     console.log("Hello controller");
-    console.log(roitai);
+    // console.log(roitai);
     res.send("Hello controller");
   } catch (error) {
     console.log(error.massage);
